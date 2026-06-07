@@ -1,0 +1,4 @@
+<?php include 'auth.php'; include '../config/db.php'; $msg='';
+if(isset($_POST['save'])){ $title=mysqli_real_escape_string($conn,$_POST['title']); $description=mysqli_real_escape_string($conn,$_POST['description']); mysqli_query($conn,"INSERT INTO news(title,description) VALUES('$title','$description')"); $msg='სიახლე დაემატა'; }
+?>
+<!DOCTYPE html><html lang="ka"><head><meta charset="UTF-8"><title>Admin</title><link rel="stylesheet" href="../css/style.css"></head><body><div class="container"><a class="btn" href="dashboard.php">უკან</a><h1>სიახლის დამატება</h1><form class="form" method="POST"><?php if($msg): ?><div class="alert"><?= $msg ?></div><?php endif; ?><input name="title" placeholder="სათაური" required><textarea name="description" placeholder="აღწერა" required></textarea><button class="btn" name="save">დამატება</button></form></div></body></html>

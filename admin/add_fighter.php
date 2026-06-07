@@ -1,0 +1,6 @@
+<?php include 'auth.php'; include '../config/db.php'; $msg='';
+if(isset($_POST['save'])){
+$name=mysqli_real_escape_string($conn,$_POST['name']); $country=mysqli_real_escape_string($conn,$_POST['country']); $weight=mysqli_real_escape_string($conn,$_POST['weight']); $wins=(int)$_POST['wins']; $losses=(int)$_POST['losses']; $description=mysqli_real_escape_string($conn,$_POST['description']);
+mysqli_query($conn,"INSERT INTO fighters(name,country,weight,wins,losses,description) VALUES('$name','$country','$weight',$wins,$losses,'$description')"); $msg='მოკრივე დაემატა';}
+?>
+<!DOCTYPE html><html lang="ka"><head><meta charset="UTF-8"><title>Admin</title><link rel="stylesheet" href="../css/style.css"></head><body><div class="container"><a class="btn" href="dashboard.php">უკან</a><h1>მოკრივის დამატება</h1><form class="form" method="POST"><?php if($msg): ?><div class="alert"><?= $msg ?></div><?php endif; ?><input name="name" placeholder="სახელი" required><input name="country" placeholder="ქვეყანა" required><input name="weight" placeholder="წონა" required><input type="number" name="wins" placeholder="მოგება" required><input type="number" name="losses" placeholder="წაგება" required><textarea name="description" placeholder="აღწერა"></textarea><button class="btn" name="save">დამატება</button></form></div></body></html>
