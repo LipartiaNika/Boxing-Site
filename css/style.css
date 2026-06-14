@@ -1,1 +1,279 @@
-*{box-sizing:border-box} body{margin:0;font-family:Arial,Helvetica,sans-serif;background:#111;color:#fff} a{color:inherit}.navbar{background:#b30000;padding:15px 8%;display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap}.logo{font-size:24px;font-weight:bold;color:#ffd700;text-decoration:none}.nav-links a{margin:0 10px;text-decoration:none;font-weight:bold}.nav-links a:hover{color:#ffd700}.hero{min-height:430px;background:linear-gradient(rgba(0,0,0,.65),rgba(0,0,0,.7)),url('../images/boxing-bg.svg');background-size:cover;background-position:center;display:flex;align-items:center;justify-content:center;text-align:center;padding:40px}.hero h1{font-size:58px;margin:0;color:#ffd700}.hero p{font-size:22px}.btn{background:#ffd700;color:#111;padding:12px 22px;border:none;border-radius:8px;text-decoration:none;font-weight:bold;cursor:pointer;display:inline-block}.container{width:86%;margin:35px auto}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:20px}.card{background:#1d1d1d;border:1px solid #333;border-radius:12px;padding:22px;box-shadow:0 0 12px rgba(0,0,0,.25)}.card h3{color:#ffd700;margin-top:0}.form{max-width:520px;margin:30px auto;background:#1d1d1d;padding:25px;border-radius:12px}.form input,.form textarea,.form select{width:100%;padding:12px;margin:8px 0 15px;border-radius:6px;border:1px solid #444;background:#111;color:#fff}.form button{width:100%}.table{width:100%;border-collapse:collapse;background:#1d1d1d}.table th,.table td{border:1px solid #444;padding:12px;text-align:left}.table th{background:#b30000}.alert{padding:12px;border-radius:8px;background:#174d17;margin:15px 0}.error{background:#5a1111}.footer{text-align:center;background:#080808;padding:25px;margin-top:50px;color:#aaa}.admin-menu a{display:inline-block;margin:8px}.small{color:#bbb;font-size:14px}
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family:Arial, Helvetica, sans-serif;
+    background:#111;
+    color:#fff;
+    line-height:1.6;
+}
+
+a{
+    text-decoration:none;
+    color:#fff;
+}
+
+/* NAVBAR */
+
+.navbar{
+    background:#b30000;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:18px 40px;
+    position:sticky;
+    top:0;
+    z-index:1000;
+    box-shadow:0 3px 10px rgba(0,0,0,.4);
+}
+
+.logo{
+    font-size:30px;
+    font-weight:bold;
+    color:#ffd700;
+}
+
+.nav-links{
+    display:flex;
+    gap:22px;
+}
+
+.nav-links a{
+    transition:.3s;
+}
+
+.nav-links a:hover{
+    color:#ffd700;
+}
+
+/* CONTAINER */
+
+.container{
+    width:90%;
+    max-width:1350px;
+    margin:40px auto;
+}
+
+.container h1,
+.page-title{
+    text-align:center;
+    font-size:42px;
+    margin-bottom:40px;
+}
+
+/* HERO */
+
+.hero{
+    background:url("../images/boxing-bg.svg") center center/cover;
+    padding:120px 20px;
+    text-align:center;
+}
+
+.hero h1{
+    font-size:60px;
+}
+
+/* FIGHTERS GRID */
+
+.grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+    gap:30px;
+}
+
+/* FIGHTER CARD */
+
+.card{
+    background:#1b1b1b;
+    border-radius:18px;
+    overflow:hidden;
+    box-shadow:0 8px 25px rgba(0,0,0,.45);
+    transition:.3s;
+}
+
+.card:hover{
+    transform:translateY(-8px);
+}
+
+.card h3{
+    color:#ffd700;
+    margin:18px;
+    font-size:28px;
+}
+
+.card p{
+    margin:12px 18px;
+    color:#ddd;
+}
+
+.fighter-img{
+    width:100%;
+    height:350px;
+    object-fit:cover;
+    object-position:top;
+    display:block;
+    background:#000;
+}
+
+/* MATCHES PAGE */
+
+.matches-grid{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:30px;
+}
+
+.match-card{
+    min-height:260px;
+    background:linear-gradient(145deg,#1b1b1b,#0d0d0d);
+    border-radius:20px;
+    padding:35px;
+    text-align:center;
+    box-shadow:0 8px 25px rgba(0,0,0,.45);
+    border:1px solid rgba(255,255,255,.08);
+    transition:.3s;
+}
+
+.match-card:hover{
+    transform:translateY(-8px);
+    border-color:#b30000;
+    box-shadow:0 15px 35px rgba(179,0,0,.35);
+}
+
+.match-card h2{
+    font-size:30px;
+    color:#fff;
+    margin:12px 0;
+}
+
+.vs{
+    color:#ffd700;
+    font-size:30px;
+    font-weight:bold;
+    margin:18px 0;
+}
+
+.match-card hr{
+    border:none;
+    border-top:1px solid #333;
+    margin:20px 0;
+}
+
+.match-card p{
+    font-size:18px;
+    margin:12px 0;
+    color:#ddd;
+}
+
+/* BUTTON */
+
+.btn{
+    display:inline-block;
+    margin:15px;
+    padding:12px 22px;
+    background:#b30000;
+    border-radius:8px;
+    transition:.3s;
+}
+
+.btn:hover{
+    background:#ff0000;
+}
+
+/* FORM */
+
+form{
+    display:flex;
+    flex-direction:column;
+    gap:15px;
+}
+
+input,
+textarea,
+select{
+    padding:12px;
+    border:none;
+    border-radius:8px;
+    font-size:16px;
+}
+
+button{
+    padding:12px;
+    background:#b30000;
+    color:#fff;
+    border:none;
+    border-radius:8px;
+    cursor:pointer;
+    transition:.3s;
+}
+
+button:hover{
+    background:#ff0000;
+}
+
+/* TABLE */
+
+.table{
+    width:100%;
+    border-collapse:collapse;
+    background:#1b1b1b;
+    border-radius:12px;
+    overflow:hidden;
+}
+
+.table th,
+.table td{
+    padding:15px;
+    border-bottom:1px solid #333;
+    text-align:left;
+}
+
+.table th{
+    background:#b30000;
+    color:#fff;
+}
+
+/* FOOTER */
+
+footer{
+    margin-top:60px;
+    background:#1b1b1b;
+    padding:25px;
+    text-align:center;
+}
+
+/* MOBILE */
+
+@media(max-width:900px){
+    .matches-grid{
+        grid-template-columns:1fr;
+    }
+}
+
+@media(max-width:768px){
+    .navbar{
+        flex-direction:column;
+        gap:15px;
+    }
+
+    .nav-links{
+        flex-wrap:wrap;
+        justify-content:center;
+    }
+
+    .hero h1{
+        font-size:38px;
+    }
+
+    .container h1,
+    .page-title{
+        font-size:34px;
+    }
+
+    .fighter-img{
+        height:280px;
+    }
+}

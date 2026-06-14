@@ -1,17 +1,39 @@
 <?php include 'header.php'; include 'config/db.php'; ?>
+
 <div class="container">
-    <h1>ბრძოლები</h1>
-    <table class="table">
-        <tr><th>მოკრივე 1</th><th>მოკრივე 2</th><th>თარიღი</th><th>ლოკაცია</th><th>შედეგი</th></tr>
-        <?php $result = mysqli_query($conn, "SELECT * FROM matches ORDER BY match_date DESC"); while($row=mysqli_fetch_assoc($result)): ?>
-        <tr>
-            <td><?= htmlspecialchars($row['fighter_one']) ?></td>
-            <td><?= htmlspecialchars($row['fighter_two']) ?></td>
-            <td><?= htmlspecialchars($row['match_date']) ?></td>
-            <td><?= htmlspecialchars($row['location']) ?></td>
-            <td><?= htmlspecialchars($row['result']) ?></td>
-        </tr>
-        <?php endwhile; ?>
-    </table>
+
+    <h1 class="page-title">🥊 მომავალი ბრძოლები</h1>
+
+    <div class="matches-grid">
+
+    <?php
+    $result = mysqli_query($conn,"SELECT * FROM matches ORDER BY match_date ASC");
+
+    while($row=mysqli_fetch_assoc($result)):
+    ?>
+
+        <div class="match-card">
+
+            <h2><?= htmlspecialchars($row['fighter_one']) ?></h2>
+
+            <div class="vs">⚔️ VS ⚔️</div>
+
+            <h2><?= htmlspecialchars($row['fighter_two']) ?></h2>
+
+            <hr>
+
+            <p>📅 <b>თარიღი:</b> <?= htmlspecialchars($row['match_date']) ?></p>
+
+            <p>📍 <b>ლოკაცია:</b> <?= htmlspecialchars($row['location']) ?></p>
+
+            <p>🏆 <b>სტატუსი:</b> <?= htmlspecialchars($row['result']) ?></p>
+
+        </div>
+
+    <?php endwhile; ?>
+
+    </div>
+
 </div>
+
 <?php include 'footer.php'; ?>
